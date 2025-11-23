@@ -1,1314 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arun Kashyap - Data Scientist Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Base Styles & CSS Variables for Theming */
-        :root {
-            --color-bg-primary-dark: #000000;
-            --color-bg-secondary-dark: #0A0A0A;
-            --color-text-primary-dark: #F0F0F0;
-            --color-text-secondary-dark: #A0A0A0;
-            --color-accent-dark: #007BFF;
-            --color-border-dark: #1A1A1A;
-            --color-shadow-dark: rgba(0, 0, 0, 0.7);
-            --color-card-shadow-dark: rgba(0, 0, 0, 0.3);
-            --color-project-expanded-bg-dark: rgba(0, 123, 255, 0.1);
-            --color-project-expanded-border-dark: #007BFF;
-            --color-chatbot-bg-dark: #1A1A1A;
-            --color-chatbot-border-dark: #333333;
-            --color-chatbot-input-bg-dark: #2A2A2A;
-            --color-chatbot-input-text-dark: #F0F0F0;
-            --color-chatbot-button-bg-dark: #007BFF;
-            --color-chatbot-button-hover-dark: #0056B3;
-            --color-chat-user-bubble-dark: #007BFF;
-            --color-chat-bot-bubble-dark: #333333;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Arun Kashyap | Data Scientist & AI Engineer</title>
+    <meta name="description"
+        content="Portfolio of Arun Kashyap, a Data Scientist specializing in AI, Machine Learning, and Multi-Agent Systems.">
 
-            --color-bg-primary-light: #FFFFFF;
-            --color-bg-secondary-light: #F8F8F8;
-            --color-text-primary-light: #333333;
-            --color-text-secondary-light: #666666;
-            --color-accent-light: #0056B3;
-            --color-border-light: #E0E0E0;
-            --color-shadow-light: rgba(0, 0, 0, 0.15);
-            --color-card-shadow-light: rgba(0, 0, 0, 0.08);
-            --color-project-expanded-bg-light: rgba(0, 86, 179, 0.1);
-            --color-project-expanded-border-light: #0056B3;
-            --color-chatbot-bg-light: #FFFFFF;
-            --color-chatbot-border-light: #E0E0E0;
-            --color-chatbot-input-bg-light: #F0F0F0;
-            --color-chatbot-input-text-light: #333333;
-            --color-chatbot-button-bg-light: #0056B3;
-            --color-chatbot-button-hover-light: #003F80;
-            --color-chat-user-bubble-light: #0056B3;
-            --color-chat-bot-bubble-light: #E0E0E0;
+    <!-- Apple/iOS Specific Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Arun Kashyap">
+    <meta name="format-detection" content="telephone=no">
 
-            /* Initial theme (dark mode) */
-            --color-bg-primary: var(--color-bg-primary-dark);
-            --color-bg-secondary: var(--color-bg-secondary-dark);
-            --color-text-primary: var(--color-text-primary-dark);
-            --color-text-secondary: var(--color-text-secondary-dark);
-            --color-accent: var(--color-accent-dark);
-            --color-border: var(--color-border-dark);
-            --color-shadow: var(--color-shadow-dark);
-            --color-card-shadow: var(--color-card-shadow-dark);
-            --color-project-expanded-bg: var(--color-project-expanded-bg-dark);
-            --color-project-expanded-border: var(--color-project-expanded-border-dark);
-            --color-chatbot-bg: var(--color-chatbot-bg-dark);
-            --color-chatbot-border: var(--color-chatbot-border-dark);
-            --color-chatbot-input-bg: var(--color-chatbot-input-bg-dark);
-            --color-chatbot-input-text: var(--color-chatbot-input-text-dark);
-            --color-chatbot-button-bg: var(--color-chatbot-button-bg-dark);
-            --color-chatbot-button-hover: var(--color-chatbot-button-hover-dark);
-            --color-chat-user-bubble: var(--color-chat-user-bubble-dark);
-            --color-chat-bot-bubble: var(--color-chat-bot-bubble-dark);
-        }
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#0a0f1a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
 
-        body.light-mode {
-            --color-bg-primary: var(--color-bg-primary-light);
-            --color-bg-secondary: var(--color-bg-secondary-light);
-            --color-text-primary: var(--color-text-primary-light);
-            --color-text-secondary: var(--color-text-secondary-light);
-            --color-accent: var(--color-accent-light);
-            --color-border: var(--color-border-light);
-            --color-shadow: var(--color-shadow-light);
-            --color-card-shadow: var(--color-card-shadow-light);
-            --color-project-expanded-bg: var(--color-project-expanded-bg-light);
-            --color-project-expanded-border: var(--color-project-expanded-border-light);
-            --color-chatbot-bg: var(--color-chatbot-bg-light);
-            --color-chatbot-border: var(--color-chatbot-border-light);
-            --color-chatbot-input-bg: var(--color-chatbot-input-bg-light);
-            --color-chatbot-input-text: var(--color-chatbot-input-text-light);
-            --color-chatbot-button-bg: var(--color-chatbot-button-bg-light);
-            --color-chatbot-button-hover: var(--color-chatbot-button-hover-light);
-            --color-chat-user-bubble: var(--color-chat-user-bubble-light);
-            --color-chat-bot-bubble: var(--color-chat-bot-bubble-light);
-        }
-
-        /* General Styling */
-        body {
-            margin: 0;
-            font-family: 'Nunito', sans-serif;
-            background-color: var(--color-bg-primary);
-            color: var(--color-text-primary);
-            scroll-behavior: smooth;
-            transition: background-color 0.5s, color 0.5s;
-        }
-
-        .container {
-            max-width: 1280px; /* Equivalent to Tailwind's max-w-7xl */
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-
-        /* Header */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            background-color: var(--color-bg-primary);
-            box-shadow: 0 2px 10px var(--color-shadow);
-            transition: background-color 0.5s, box-shadow 0.5s;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem; /* space-x-6 */
-            position: relative;
-        }
-
-        nav a {
-            font-size: 1.125rem; /* text-lg */
-            font-weight: 600; /* font-semibold */
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            transition: color 0.3s, border-bottom 0.3s;
-            padding-bottom: 0.25rem;
-        }
-
-        nav a.active,
-        nav a:hover {
-            color: var(--color-accent);
-            border-bottom: 2px solid var(--color-accent);
-        }
-
-        /* Dark/Light Mode Toggle Button */
-        #theme-toggle {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 0.5rem;
-            border-radius: 9999px; /* rounded-full */
-            background-color: var(--color-bg-secondary);
-            color: var(--color-text-primary); /* Default color, overridden by JS for sun/moon */
-            box-shadow: 0 2px 8px var(--color-card-shadow);
-            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        #theme-toggle svg {
-            height: 1.5rem; /* h-6 */
-            width: 1.5rem; /* w-6 */
-        }
-
-        /* Hero Section (About) */
-        #about {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh; /* h-screen */
-            text-align: center;
-            padding: 2rem;
-            overflow: hidden;
-            background-color: var(--color-bg-primary);
-            transition: background-color 0.5s;
-        }
-
-        #about .content-wrapper {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 48rem; /* max-w-4xl */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #about img {
-            border-radius: 9999px; /* rounded-full */
-            width: 12rem; /* w-48 */
-            height: 12rem; /* h-48 */
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 15px -3px var(--color-shadow); /* shadow-xl */
-            transition: transform 0.5s, border-color 0.5s;
-            border: 4px solid var(--color-accent);
-        }
-
-        #about img:hover {
-            transform: scale(1.05);
-        }
-
-        #about h1 {
-            font-size: 3rem; /* text-5xl */
-            line-height: 1.25; /* leading-tight */
-            font-weight: 800; /* font-extrabold */
-            margin-bottom: 1rem;
-            color: var(--color-text-primary);
-            transition: color 0.5s;
-        }
-
-        #about h2 {
-            font-size: 1.5rem; /* text-2xl */
-            font-weight: 600; /* font-semibold */
-            margin-bottom: 1.5rem;
-            color: var(--color-accent);
-            transition: color 0.5s;
-        }
-
-        #about p {
-            font-size: 1.125rem; /* text-lg */
-            line-height: 1.625; /* leading-relaxed */
-            margin-bottom: 2rem;
-            max-width: 42rem; /* max-w-2xl */
-            color: var(--color-text-secondary);
-            transition: color 0.5s;
-        }
-
-        #about .social-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem; /* gap-4 */
-            font-size: 1.125rem; /* text-lg */
-        }
-
-        #about .social-links a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem; /* space-x-2 */
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        #about .social-links a:hover {
-            color: var(--color-accent);
-            transform: scale(1.05);
-        }
-
-        #about .social-links svg {
-            height: 1.5rem; /* h-6 */
-            width: 1.5rem; /* w-6 */
-        }
-
-        #about .social-links span {
-            color: var(--color-text-secondary);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 6rem 2rem; /* py-24 px-8 */
-            border-radius: 0.5rem; /* rounded-lg */
-            box-shadow: 0 8px 20px var(--color-card-shadow); /* shadow-xl */
-            margin: 3rem auto; /* my-12 mx-auto */
-            max-width: 60rem; /* max-w-5xl */
-            border: 1px solid var(--color-border);
-            transition: background-color 0.5s, border-color 0.5s, box-shadow 0.5s;
-        }
-
-        section h2 {
-            font-size: 2.25rem; /* text-4xl */
-            font-weight: 700; /* font-bold */
-            text-align: center;
-            margin-bottom: 4rem; /* mb-16 */
-            color: var(--color-text-primary);
-            transition: color 0.5s;
-        }
-
-        /* Card Styling (for Education, Skills, Experience, Projects, Articles) */
-        .card-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem; /* gap-10 */
-        }
-
-        @media (min-width: 768px) { /* md breakpoint */
-            .card-grid.cols-2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .card-grid.cols-3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .card {
-            padding: 2rem; /* p-8 */
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 4px 15px var(--color-card-shadow); /* shadow-md */
-            border: 1px solid var(--color-border);
-            transition: background-color 0.5s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            background-color: var(--color-bg-primary); /* Default for inner cards */
-        }
-
-        section:nth-child(even) .card {
-            background-color: var(--color-bg-secondary); /* Alternating background for cards */
-        }
-        section:nth-child(odd) .card {
-            background-color: var(--color-bg-primary); /* Alternating background for cards */
-        }
-
-
-        .card:hover {
-            transform: scale(1.01);
-            border-color: var(--color-accent);
-        }
-
-        .card h3 {
-            font-size: 1.5rem; /* text-2xl */
-            font-weight: 700; /* font-bold */
-            margin-bottom: 0.5rem;
-            color: var(--color-text-primary);
-            transition: color 0.5s;
-        }
-
-        .card p {
-            font-size: 1rem; /* text-base */
-            margin-bottom: 1rem;
-            color: var(--color-text-secondary);
-            transition: color 0.5s;
-        }
-        .card p.small-text {
-            font-size: 0.875rem; /* text-sm */
-            margin-bottom: 1rem;
-        }
-
-
-        .card ul {
-            list-style: disc;
-            padding-left: 1.5rem;
-            margin-top: 1rem;
-            color: var(--color-text-secondary);
-            transition: color 0.5s;
-        }
-
-        .card ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .card a {
-            color: var(--color-accent);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .card a:hover {
-            text-decoration: underline;
-        }
-
-        /* Project & Article Specifics */
-        .project-button, .article-button {
-            margin-top: 1.5rem;
-            padding: 0.75rem 1.5rem; /* px-6 py-3 */
-            border-radius: 9999px; /* rounded-full */
-            transition: background-color 0.3s, box-shadow 0.3s;
-            background-color: var(--color-accent);
-            color: #FFFFFF; /* Always white text for visibility */
-            box-shadow: 0 4px 10px var(--color-card-shadow);
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem; /* text-base */
-            font-weight: 600; /* font-semibold */
-        }
-
-        .project-button:hover, .article-button:hover {
-            background-color: var(--color-chatbot-button-hover); /* Use the specific hover color */
-        }
-
-        .project-expanded-details {
-            margin-top: 1.5rem;
-            padding: 1.25rem; /* p-5 */
-            border-radius: 0.5rem; /* rounded-lg */
-            border: 1px solid var(--color-project-expanded-border);
-            background-color: var(--color-project-expanded-bg);
-            color: var(--color-text-primary);
-            transition: background-color 0.5s, border-color 0.5s, color 0.5s;
-        }
-
-        .project-expanded-details h4 {
-            font-weight: 700; /* font-bold */
-            margin-bottom: 0.75rem;
-            font-size: 1.125rem; /* text-lg */
-            color: var(--color-accent);
-            transition: color 0.5s;
-        }
-
-        .project-expanded-details p {
-            white-space: pre-wrap; /* For preserving line breaks from API */
-            line-height: 1.625; /* leading-relaxed */
-            margin-bottom: 0; /* Override default p margin */
-        }
-
-        /* Footer */
-        footer {
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.875rem; /* text-sm */
-            border-top: 1px solid var(--color-border);
-            background-color: var(--color-bg-primary);
-            color: var(--color-text-secondary);
-            transition: background-color 0.5s, color 0.5s, border-color 0.5s;
-        }
-
-        /* Chatbot Styles */
-        .chatbot-toggle-button {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            padding: 1rem;
-            border-radius: 9999px;
-            box-shadow: 0 4px 12px var(--color-shadow);
-            background-color: var(--color-accent);
-            color: var(--color-text-primary);
-            border: none;
-            cursor: pointer;
-            z-index: 50;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, color 0.3s;
-        }
-
-        .chatbot-toggle-button svg {
-            height: 1.75rem; /* h-7 */
-            width: 1.75rem; /* w-7 */
-        }
-
-        .chatbot-toggle-button.open {
-            transform: rotate(45deg);
-        }
-
-        .chatbot-window {
-            position: fixed;
-            bottom: 6rem; /* bottom-24 */
-            right: 2rem; /* right-8 */
-            width: 20rem; /* w-80 */
-            height: 24rem; /* h-96 */
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 20px var(--color-shadow);
-            display: flex;
-            flex-direction: column;
-            z-index: 40;
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-            background-color: var(--color-chatbot-bg);
-            border: 1px solid var(--color-chatbot-border);
-            opacity: 0; /* Hidden by default */
-            transform: scale(0); /* Collapsed by default */
-            pointer-events: none; /* No interaction when hidden */
-        }
-
-        .chatbot-window.open {
-            transform: scale(1);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .chatbot-header {
-            padding: 1rem;
-            border-top-left-radius: 0.5rem;
-            border-top-right-radius: 0.5rem;
-            font-weight: 700;
-            font-size: 1.125rem;
-            background-color: var(--color-accent);
-            color: var(--color-text-primary);
-            transition: background-color 0.5s, color 0.5s;
-        }
-
-        .chatbot-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            background-color: var(--color-chatbot-bg);
-            transition: background-color 0.5s;
-        }
-
-        .chat-bubble {
-            max-width: 80%;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            color: var(--color-text-primary);
-            transition: background-color 0.5s, color 0.5s;
-        }
-
-        .chat-bubble.user {
-            margin-left: auto;
-            background-color: var(--color-chat-user-bubble);
-        }
-
-        .chat-bubble.bot {
-            margin-right: auto;
-            background-color: var(--color-chat-bot-bubble);
-        }
-
-        .chatbot-input-area {
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            border-top: 1px solid var(--color-chatbot-border);
-            background-color: var(--color-chatbot-bg);
-            transition: background-color 0.5s, border-color 0.5s;
-        }
-
-        .chatbot-input-area input {
-            flex: 1;
-            padding: 0.5rem;
-            border-radius: 0.375rem;
-            border: 1px solid var(--color-chatbot-border);
-            background-color: var(--color-chatbot-input-bg);
-            color: var(--color-chatbot-input-text);
-            outline: none;
-            transition: background-color 0.5s, color 0.5s, border-color 0.5s;
-        }
-
-        .chatbot-input-area input:focus {
-            box-shadow: 0 0 0 2px var(--color-accent);
-        }
-
-        .chatbot-input-area button {
-            margin-left: 0.5rem;
-            padding: 0.5rem;
-            border-radius: 0.375rem;
-            background-color: var(--color-chatbot-button-bg);
-            color: var(--color-text-primary);
-            box-shadow: 0 2px 8px var(--color-card-shadow);
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-
-        .chatbot-input-area button:hover {
-            background-color: var(--color-chatbot-button-hover);
-        }
-
-        /* Animations */
-        @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
-        .animate-fade-in-up-delay-1 { animation-delay: 0.1s; }
-        .animate-fade-in-up-delay-2 { animation-delay: 0.2s; }
-        .animate-fade-in-up-delay-3 { animation-delay: 0.3s; }
-        .animate-fade-in-up-delay-4 { animation-delay: 0.4s; }
-        .animate-fade-in-up-delay-5 { animation-delay: 0.5s; }
-
-        /* Responsive Adjustments */
-        @media (max-width: 767px) { /* Mobile styles */
-            nav {
-                gap: 0.75rem;
-                flex-wrap: wrap;
-                justify-content: space-around;
-            }
-            nav a {
-                font-size: 0.9rem;
-                padding: 0.5rem 0.25rem;
-            }
-            #theme-toggle {
-                right: 0.5rem;
-                padding: 0.3rem;
-                top: 0.5rem;
-                transform: none;
-            }
-            #about h1 {
-                font-size: 3rem;
-            }
-            #about h2 {
-                font-size: 1.25rem;
-            }
-            #about p {
-                font-size: 1rem;
-            }
-            section {
-                padding: 3rem 1rem;
-                margin: 2rem auto;
-            }
-            section h2 {
-                font-size: 1.75rem;
-                margin-bottom: 2rem;
-            }
-            .card {
-                padding: 1.5rem;
-            }
-            .card h3 {
-                font-size: 1.25rem;
-            }
-            .card p {
-                font-size: 0.9rem;
-            }
-            .card ul {
-                padding-left: 1rem;
-            }
-            .project-button, .article-button {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-            .chatbot-window {
-                width: calc(100% - 4rem); /* Full width minus margins */
-                right: 2rem;
-                bottom: 6rem;
-                height: 60vh; /* Adjust height for mobile */
-            }
-            .chatbot-toggle-button {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.8rem;
-            }
-        }
-      </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 </head>
+
 <body>
     <header>
-        <nav class="container">
-            <a href="#about" class="nav-link" data-section="about">About</a>
-            <a href="#education" class="nav-link" data-section="education">Education</a>
-            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
-            <a href="#certifications" class="nav-link" data-section="certifications">Certifications</a>
-            <a href="#experience" class="nav-link" data-section="experience">Experience</a>
-            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-            <a href="#activities" class="nav-link" data-section="activities">Activities</a>
-            <a href="#articles" class="nav-link" data-section="articles">Articles</a>
-            <button id="theme-toggle" aria-label="Toggle dark/light mode">
-                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h1M3 12H2m8.003-9.127a9.003 9.003 0 00-11.876 11.876m11.876-11.876a9.003 9.003 0 00-11.876 11.876m0 0a9.003 9.003 0 0011.876-11.876m-11.876 11.876a9.003 9.003 0 0011.876-11.876" />
-                </svg>
-                <svg class="moon-icon" style="display: none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        <div class="container">
+            <a href="#hero" class="logo">AK</a>
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
                 </svg>
             </button>
-        </nav>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <!-- Icon injected by JS -->
+            </button>
+        </div>
     </header>
 
     <main>
-        <section id="about">
-            <div class="content-wrapper animate-fade-in-up">
-                <img src="https://placehold.co/200x200/2e2e2e/ffffff?text=Arun+Kashyap" alt="Arun Kashyap">
-                <h1 class="animate-fade-in-up-delay-1">Arun Kashyap</h1>
-                <h2 class="animate-fade-in-up-delay-2">Data Scientist | MS Data Science Graduate</h2>
-                <p class="animate-fade-in-up-delay-3">
-                    Highly motivated Data Scientist, graduated with a Master's degree from Stevens Institute of Technology, specializing in developing and deploying sophisticated AI-driven solutions. Proven ability in architecting multi-agent systems, implementing Retrieval-Augmented Generation (RAG) pipelines, and leveraging LLMs for complex analysis, automation, and simulation. Gained practical experience developing AI teaching assistants as a Graduate Student Assistant. Recognized for innovative AI application in student wellness (3rd Place, Stevens IT Quackathon). Seeking an AI Engineer or Data Scientist role focused on generative AI applications and intelligent systems.
+        <!-- Hero Section -->
+        <section id="hero">
+            <!-- Animated Background Elements -->
+            <div class="hero-bg-elements">
+                <div class="floating-shape shape-1"></div>
+                <div class="floating-shape shape-2"></div>
+                <div class="floating-shape shape-3"></div>
+                <div class="grid-pattern"></div>
+            </div>
+
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span>Available for opportunities</span>
+                    </div>
+                    <h1>Hi, I'm <span class="text-gradient">Arun Kashyap</span></h1>
+                    <p class="hero-role">Data Scientist & AI Engineer</p>
+                    <p class="hero-tagline">I build <span class="typing-text">intelligent AI agents</span><span class="cursor">|</span></p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3l1 6 6 0"/><path d="m7 9 5 13"/><path d="m11 9 6 0"/></svg>
+                            View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                        <a href="https://github.com/kashyaparun25" target="_blank" class="btn btn-icon" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/arun-kashyap" target="_blank" class="btn btn-icon" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <div class="image-glow"></div>
+                        <div class="image-ring ring-1"></div>
+                        <div class="image-ring ring-2"></div>
+                        <div class="image-ring ring-3"></div>
+                        <img src="assets/images/headshot.jpg" alt="Arun Kashyap - Data Scientist & AI Engineer">
+                        <div class="tech-orbit">
+                            <div class="orbit-item orbit-1" title="Python">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2c-1.5 0-2.5.5-3 1.5-.4.8-.4 1.7-.4 2.5v2h4v1H6c-1 0-2 .5-2.5 1.5-.4.8-.5 1.7-.5 3s.1 2.2.5 3c.5 1 1.5 1.5 2.5 1.5h2v-3c0-1 .5-2 1.5-2.5.3-.1.7-.2 1-.2h4c.8 0 1.5-.7 1.5-1.5V5.5c0-.8-.7-1.5-1.5-1.5-.5-.4-1.5-1-3.5-1h-1zM9 4.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/><path fill="currentColor" d="M18.5 7v3c0 1-.5 2-1.5 2.5-.3.1-.7.2-1 .2h-4c-.8 0-1.5.7-1.5 1.5v4.3c0 .8.7 1.5 1.5 1.5.5.4 1.5 1 3.5 1h1c1.5 0 2.5-.5 3-1.5.4-.8.4-1.7.4-2.5v-2h-4v-1h6c1 0 2-.5 2.5-1.5.4-.8.5-1.7.5-3s-.1-2.2-.5-3c-.5-1-1.5-1.5-2.5-1.5h-2zm.5 10.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+                            </div>
+                            <div class="orbit-item orbit-2" title="AI/ML">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2a4 4 0 0 0-4 4v2a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4zM6 10a2 2 0 0 0-2 2v2a2 2 0 0 0 4 0v-2a2 2 0 0 0-2-2zm12 0a2 2 0 0 0-2 2v2a2 2 0 0 0 4 0v-2a2 2 0 0 0-2-2zM9 16v3a3 3 0 0 0 6 0v-3"/></svg>
+                            </div>
+                            <div class="orbit-item orbit-3" title="Cloud">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Stats -->
+            <div class="hero-stats">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">AI Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">MS</span>
+                            <span class="stat-label">Stevens Institute</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">About Me</span>
+                    <h2>Driven by Data, Powered by AI</h2>
+                </div>
+                <div class="about-content">
+                    <p>
+                        I am a highly motivated Data Scientist and recent Master's graduate from Stevens
+                        Institute of Technology. My passion lies in architecting sophisticated AI-driven solutions, from
+                        <strong>Multi-Agent Systems</strong> to <strong>Retrieval-Augmented Generation (RAG)</strong>
+                        pipelines.
+                    </p>
+                    <p>
+                        With a strong foundation in both theoretical machine learning and practical software
+                        development, I bridge the gap between complex AI models and real-world applications.
+                        Whether it's building AI teaching assistants or optimizing business processes with GenAI, I am
+                        committed to pushing the boundaries of what's possible.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section-padding bg-secondary">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">My Journey</span>
+                    <h2>Work Experience</h2>
+                </div>
+
+                <div class="timeline">
+                    <!-- Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Jan 2025 – Present</span>
+                            <h3>Graduate Student Assistant (AI)</h3>
+                            <h4 class="timeline-company">Stevens Institute of Technology</h4>
+                            <ul class="timeline-list">
+                                <li>Spearheaded the design of AI Agents (CrewAI/LangChain) to automate content
+                                    generation and grading.</li>
+                                <li>Orchestrated full lifecycle of AI apps using Streamlit/FastAPI and cloud
+                                    deployment.</li>
+                                <li>Collaborated with faculty to integrate AI tools into classroom lessons.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Jun 2021 – Dec 2021</span>
+                            <h3>Product Analyst</h3>
+                            <h4 class="timeline-company">BlueTree Consultancy Services</h4>
+                            <ul class="timeline-list">
+                                <li>Designed custom HR SaaS solutions for clients like Autoliv and PhonePe.</li>
+                                <li>Improved workforce efficiency by 15% through advanced Power BI dashboards.</li>
+                                <li>Led end-to-end implementations using UAT methodologies, ensuring zero-downtime
+                                    rollouts.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Jun 2019 – Aug 2019</span>
+                            <h3>IoT Intern</h3>
+                            <h4 class="timeline-company">Invicto Energies</h4>
+                            <ul class="timeline-list">
+                                <li>Developed Python pipelines for smart irrigation systems processing real-time
+                                    sensor data.</li>
+                                <li>Achieved 20% increase in irrigation efficiency using Regression Analysis.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Portfolio</span>
+                    <h2>Featured Projects</h2>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="card project-card">
+                        <div class="project-header">
+                            <h3>Campus Calm AI</h3>
+                            <div class="project-links">
+                                <a href="#" target="_blank" title="View Code"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            An accessible, confidential AI companion ('Loona') providing 24/7 mental wellness
+                            support. Winner of 3rd Place at Stevens IT Quackathon.
+                        </p>
+                        <div class="project-tech">
+                            <span>Azure AI</span>
+                            <span>RAG</span>
+                            <span>FastAPI</span>
+                            <span>Cosmos DB</span>
+                        </div>
+                        <button class="btn btn-outline project-expand-btn"
+                            onclick="expandProject(this, 'p1', 'Campus Calm AI', 'Architected a dual-interface (text/voice) app using Azure cloud services. Implemented RAG with Vector Search for grounded responses and an AI agent for safety monitoring.')">
+                            Expand Details
+                        </button>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="card project-card">
+                        <div class="project-header">
+                            <h3>Design Thinking AI Agents</h3>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            A hierarchical multi-agent system guiding users through the Design Thinking process
+                            with specialized agents for each stage.
+                        </p>
+                        <div class="project-tech">
+                            <span>CrewAI</span>
+                            <span>LangChain</span>
+                            <span>Streamlit</span>
+                            <span>Gemini</span>
+                        </div>
+                        <button class="btn btn-outline project-expand-btn"
+                            onclick="expandProject(this, 'p2', 'Design Thinking AI Agents', 'Built a complex multi-agent system with CrewAI. Integrated RAG for methodology guidance and created an interactive UI for tracking progress.')">
+                            Expand Details
+                        </button>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="card project-card">
+                        <div class="project-header">
+                            <h3>Case Analysis Suite</h3>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Automates the analysis of case studies and articles for educators, generating
+                            teaching notes and lesson plans.
+                        </p>
+                        <div class="project-tech">
+                            <span>GenAI</span>
+                            <span>Python</span>
+                            <span>Streamlit</span>
+                        </div>
+                        <button class="btn btn-outline project-expand-btn"
+                            onclick="expandProject(this, 'p3', 'Case Analysis Suite', 'Developed a versatile suite using CrewAI/Gemini. Engineered content-type detection and dynamic prompt adaptation for various document formats.')">
+                            Expand Details
+                        </button>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="card project-card">
+                        <div class="project-header">
+                            <h3>Simulated Board Discussion</h3>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            Realistic simulation environment for board discussions using AI personas derived
+                            from research materials.
+                        </p>
+                        <div class="project-tech">
+                            <span>CrewAI</span>
+                            <span>Firecrawl</span>
+                            <span>Simulation</span>
+                        </div>
+                        <button class="btn btn-outline project-expand-btn"
+                            onclick="expandProject(this, 'p4', 'Simulated Board Discussion', 'Built an AI platform processing diverse inputs to generate dynamic personas. Allows human participation alongside AI agents for strategic training.')">
+                            Expand Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-padding bg-secondary">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Expertise</span>
+                    <h2>Technical Skills</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="card skill-category">
+                        <h3>AI & Machine Learning</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">LangChain</span>
+                            <span class="skill-tag">CrewAI</span>
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">LLMs</span>
+                        </div>
+                    </div>
+
+                    <div class="card skill-category">
+                        <h3>Data Science</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">Seaborn</span>
+                            <span class="skill-tag">Plotly</span>
+                        </div>
+                    </div>
+
+                    <div class="card skill-category">
+                        <h3>Cloud & Big Data</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">PySpark</span>
+                            <span class="skill-tag">Hadoop</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="card skill-category">
+                        <h3>Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Agile</span>
+                            <span class="skill-tag">Jira</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding">
+            <div class="container contact-container">
+                <div class="section-header">
+                    <span class="subtitle">Get In Touch</span>
+                    <h2>Let's Collaborate</h2>
+                </div>
+                <p class="contact-text">
+                    I'm currently seeking opportunities as an AI Engineer or Data Scientist. Whether you have a
+                    question or just want to say hi, I'll try my best to get back to you!
                 </p>
-                <div class="social-links animate-fade-in-up-delay-4">
-                    <a href="mailto:hvarunkashyap@gmail.com">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-1 10a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h12a2 2 0 012 2v12z" />
+                <div class="contact-btns">
+                    <a href="mailto:hvarunkashyap@gmail.com" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                         </svg>
-                        <span>hvarunkashyap@gmail.com</span>
+                        Email Me
                     </a>
-                    <span>|</span>
-                    <a href="http://www.linkedin.com/in/hv-arunkashyap" target="_blank" rel="noopener noreferrer">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    <a href="https://linkedin.com/in/arun-kashyap" target="_blank" class="btn btn-outline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
                         </svg>
-                        <span>LinkedIn</span>
+                        LinkedIn
                     </a>
-                    <span>|</span>
-                    <a href="https://github.com/kashyaparun25" target="_blank" rel="noopener noreferrer">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.08-.731.084-.716.084-.716 1.192.085 1.816 1.206 1.816 1.206 1.057 1.814 2.91.514 3.623.394.108-.385.419-.716.769-.876-2.77-.309-5.66-1.388-5.66-6.157 0-1.36.485-2.477 1.287-3.353-.12-.309-.559-1.588.115-3.313 0 0 1.047-.353 3.424 1.281 1.001-.278 2.072-.417 3.13-.421 1.058.004 2.129.143 3.13.421 2.377-1.634 3.424-1.281 3.424-1.281.674 1.725.235 3.004.115 3.313.803.876 1.287 1.993 1.287 3.353 0 4.78-2.893 5.848-5.671 6.147.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576c4.765-1.589 8.197-6.086 8.197-11.386c0-6.627-5.373-12-12-12z"/>
+                    <a href="https://github.com/kashyaparun25" target="_blank" class="btn btn-outline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                            <path d="M9 18c-4.51 2-5-2-7-2" />
                         </svg>
-                        <span>GitHub</span>
+                        GitHub
                     </a>
                 </div>
             </div>
-        </section>
-
-        <section id="education">
-            <h2>Education</h2>
-            <div class="card-grid cols-2">
-                <div class="card">
-                    <h3>Stevens Institute of Technology</h3>
-                    <p><strong>MS in Data Science</strong> (Graduated May 2025)</p>
-                    <p>GPA: 3.90/4.0</p>
-                    <p class="small-text">
-                        <em>Coursework: Applied Machine Learning, Deep Learning, Big Data, Probability & Statistics, Developing Business Applications Using GenAI</em>
-                    </p>
-                </div>
-                <div class="card">
-                    <h3>Presidency University</h3>
-                    <p><strong>BTech in Electronics and Communication Engineering</strong> (2021)</p>
-                    <p>GPA: 3.71/4.0</p>
-                    <p class="small-text">
-                        <em>Coursework: Artificial Neural Network, Digital Image Processing, Engineering Mathematics</em>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="card-grid cols-3">
-                <div class="card">
-                    <h3>Programming & AI Tools</h3>
-                    <ul>
-                        <li>Python, Scikit-learn, TensorFlow, PyTorch</li>
-                        <li>Hugging Face Transformers, LangChain, CrewAI</li>
-                        <li>Multi-Agent Systems, RAG, Prompt Engineering</li>
-                        <li>LLMs (Gemini, Claude, Azure OpenAI), Model Fine-tuning</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Data Science & Visualization</h3>
-                    <ul>
-                        <li>Pandas, NumPy, Matplotlib, Seaborn, Plotly</li>
-                        <li>Power BI, PostgreSQL, MySQL</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Big Data & Cloud Platforms</h3>
-                    <ul>
-                        <li>PySpark, Hadoop</li>
-                        <li>AWS (EMR, S3)</li>
-                        <li>GCP (Cloud SQL, Cloud Run)</li>
-                        <li>Azure (Cosmos DB, OpenAI, Speech Services, AI Agents), Pinecone, Google Colab</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Software Development</h3>
-                    <ul>
-                        <li>Streamlit, FastAPI, API Integration</li>
-                        <li>GitHub, Jira, Agile Methodologies</li>
-                        <li>Frontend/Backend Development, Deployment</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <ul>
-                <li>Python For Everybody (Coursera)</li>
-                <li>Data Structures in Python (Coursera)</li>
-                <li>Machine Learning for All (Coursera)</li>
-                <li>AI for Everyone (Coursera)</li>
-                <li>Introduction to Data Science (IBM Developer Skills Network)</li>
-            </ul>
-        </section>
-
-        <section id="experience">
-            <h2>Work Experience</h2>
-            <div class="card-grid cols-1">
-                <div class="card">
-                    <h3>Graduate Student Assistant (Management of AI) | Stevens Institute of Technology</h3>
-                    <p class="small-text"><em>January 2025 – Present, Hoboken, NJ</em></p>
-                    <ul>
-                        <li>Spearheaded the design and development of AI Agents (using CrewAI/LangChain/Python) to enhance teaching effectiveness, automating tasks like content generation and initial assignment review.</li>
-                        <li>Orchestrated the full lifecycle (frontend/backend development with Streamlit/FastAPI, deployment on cloud platforms, maintenance) of AI teaching assistant applications.</li>
-                        <li>Collaborated with faculty to integrate AI tools into classroom lessons, assisted with grading using AI support, prepared course materials, and supported AI-related research projects.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Product Analyst | BlueTree Consultancy Services Private Limited</h3>
-                    <p class="small-text"><em>June 2021 – Dec 2021, Bangalore, India</em></p>
-                    <ul>
-                        <li>Collaborated with Autoliv, a global leader in automotive safety systems, to design and implement custom HR SaaS solutions, optimizing workforce operations and improving efficiency by 15% through advanced Power BI dashboards.</li>
-                        <li>Partnered with PhonePe, India’s leading fintech company, to integrate HR analytics with their digital payment systems, leveraging Python scripting and Postman API testing for seamless data synchronization and payroll processing automation.</li>
-                        <li>Engineered interactive Power BI dashboards to deliver real-time insights into HR metrics (attendance, payroll, and employee engagement), empowering enterprise clients to make data-driven decisions with precision.</li>
-                        <li>Spearheaded end-to-end HR SaaS implementations using UAT methodologies, ensuring zero-downtime rollouts and reducing deployment errors by 10%, while scaling solutions to support large-scale client environments.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>IoT Intern | Invicto Energies Private Limited</h3>
-                    <p class="small-text"><em>June 2019 – August 2019, Bangalore, India</em></p>
-                    <ul>
-                        <li>Developed a Python-based data collection pipeline for a smart irrigation system, processing real-time sensor data (soil moisture, rain sensors) to improve water distribution efficiency by 20%.</li>
-                        <li>Integrated the system with a BOLT IoT mobile application, enabling real-time environmental data analysis and automated control of irrigation systems.</li>
-                        <li>Applied Regression Analysis and advanced data preprocessing techniques to optimize water usage, achieving a 20% increase in irrigation efficiency and promoting environmental sustainability.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="card-grid cols-2">
-                </div>
-        </section>
-
-        <section id="activities">
-            <h2>Activities</h2>
-            <ul>
-                <li>Secured a bronze medal at a State-level Taekwondo World Federation competition (May 2018, Bangalore, India)</li>
-                <li>Volunteered as an organizer for academic and cultural events, enhancing community engagement and leadership skills (August 2023, India)</li>
-                <li>Designed and managed a community garden project, fostering teamwork while promoting sustainability and environmental awareness (January 2015 - Present, India)</li>
-            </ul>
-        </section>
-
-        <section id="articles">
-            <h2>Technical Articles</h2>
-            <div class="card-grid cols-2">
-                </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="current-year"></span> Arun Kashyap. All rights reserved.</p>
-        <p>Built with HTML, CSS, and JavaScript.</p>
+        <div class="container">
+            <p>&copy; <span id="year">2025</span> Arun Kashyap. All rights reserved.</p>
+        </div>
     </footer>
 
-    <button id="chatbot-toggle-button" class="chatbot-toggle-button" aria-label="Toggle chatbot">
-        <svg class="chat-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-        </svg>
-        <svg class="close-icon" style="display: none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-    </button>
-
-    <div id="chatbot-window" class="chatbot-window">
-        <div class="chatbot-header">
-            Portfolio Chatbot
-        </div>
-        <div class="chatbot-messages" id="chatbot-messages">
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <div id="chatbot-window" class="chatbot-window">
+            <div class="chat-header">
+                Portfolio Assistant
             </div>
-        <div class="chatbot-input-area">
-            <input type="text" id="chat-input" placeholder="Type your message...">
-            <button id="send-chat-button" aria-label="Send message">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </button>
+            <div id="chat-messages" class="chat-messages">
+                <div class="chat-message bot">
+                    Hi! I'm Arun's AI assistant. Ask me anything about his projects or experience!
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button id="chat-send">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13" />
+                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
+                </button>
+            </div>
         </div>
+        <button id="chatbot-toggle" class="chatbot-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+        </button>
     </div>
 
+    <script src="js/script.js"></script>
     <script>
-        // Data for sections (used for navigation highlighting)
-        const sectionsData = {
-            "about": "About",
-            "education": "Education",
-            "skills": "Skills",
-            "certifications": "Certifications",
-            "experience": "Experience",
-            "projects": "Projects",
-            "activities": "Activities",
-            "articles": "Articles",
-        };
-
-        // Data for projects (UPDATED from resume)
-        const projectsData = [
-            {
-                "title": "Campus Calm: AI Student Mental Wellness Assistant & Quackathon Winner (3rd Place)",
-                "date": "Stevens IT Quackathon, Powered by Microsoft",
-                "location": "Stevens Institute of Technology",
-                "description": [
-                    "Addressed the gap in student mental wellness support by designing an accessible, confidential AI companion ('Loona') to provide 24/7 access to Stevens Institute resources (CAPS, Red Folder) and initial self-assessment tools (PHQ-9, GAD-7).",
-                    "Architected and developed the dual-interface (text/voice) application using Azure cloud services; implemented a RAG system with Azure Cosmos DB Vector Search for grounded responses; integrated Azure AI Speech and Azure OpenAI for interaction/persona; engineered the backend with FastAPI and deployed the system.",
-                    "Achieved 3rd Place at Stevens IT Quackathon; created a functional prototype demonstrating enhanced access to mental health resources; implemented a critical safety net via an AI agent monitoring for high-risk keywords and triggering automated email alerts to campus counseling services."
-                ],
-                "link": "#" // No specific GitHub link provided in updated resume, linking to current page
-            },
-            {
-                "title": "Design Thinking AI Agent Cluster (DTAAC)",
-                "date": "Stevens Institute of Technology",
-                "location": "",
-                "description": [
-                    "Guide users systematically through the complex Design Thinking process using specialized AI agents to enhance consistency, creativity, and documentation.",
-                    "Architected a hierarchical multi-agent system (CrewAI, supporting Gemini/Claude/Groq), developed stage-specific agents (Empathize, Define, etc.), integrated RAG for methodology guidance, and built an interactive Streamlit UI with chat/tracking/reporting features.",
-                    "Created an innovative framework for AI-assisted structured problem-solving, demonstrating expertise in complex multi-agent system design and process automation for innovative workflows."
-                ],
-                "link": "#"
-            },
-            {
-                "title": "Case Analysis Suite (3-in-1 AI Tool)",
-                "date": "Stevens Institute of Technology",
-                "location": "",
-                "description": [
-                    "Streamline the analysis of diverse documents (case studies, articles, news) for educators and professionals by automating the generation of teaching notes, lesson plans, and strategic board frameworks.",
-                    "Developed a versatile AI suite using CrewAI/Gemini, engineered content-type detection for dynamic prompt/output adaptation (DOCX/MD/JSON), designed specialized agent crews for each analysis type, and built the Streamlit interface.",
-                    "Significantly reduced preparation time for teaching and strategic discussions by providing high-quality, tailored analytical outputs automatically, enhancing efficiency and focus."
-                ],
-                "link": "#"
-            },
-            {
-                "title": "Simulated Board Discussion Platform",
-                "date": "Personal Project",
-                "location": "",
-                "description": [
-                    "Create a realistic simulation environment for board discussions to aid strategic training, scenario planning, and the exploration of diverse perspectives on complex topics.",
-                    "Built an AI platform (CrewAI, Gemini) processing diverse research inputs (files/URLs via Firecrawl), engineered dynamic AI persona generation derived from materials, developed interactive Streamlit UI allowing human participation alongside AI agents.",
-                    "Provided a novel tool for strategic training and understanding complex business dynamics through AI-simulated interactions, key point extraction and participation analysis."
-                ],
-                "link": "#"
-            },
-            {
-                "title": "AI Lecture Transcript Analysis Agent",
-                "date": "Personal Project",
-                "location": "",
-                "description": [
-                    "Automate the transformation of raw lecture transcripts into structured, usable educational materials for students and educators.",
-                    "Developed an AI agent (CrewAI, Google Gemini) processing multiple transcript formats (TXT, PDF, DOCX, VTT), engineered a critical redaction feature for specific company mentions, and implemented multi-format output generation (MD, DOCX, PDF).",
-                    "Streamlined the creation of study aids (summaries, quizzes, FAQs), enhancing content accessibility and neutrality, potentially reducing manual effort by over 70%."
-                ],
-                "link": "#"
-            },
-            {
-                "title": "Anti-Money Laundering Detection Using Big Data Technologies",
-                "date": "Stevens Institute of Technology",
-                "location": "",
-                "description": [
-                    "Developed a distributed anomaly detection pipeline on AWS EMR (PySpark), engineered advanced features (fan-in/out, temporal), mitigated class imbalance (SMOTE), and trained/optimized a Random Forest model on a 4-node Hadoop cluster.",
-                    "Achieved high predictive performance (AUROC: 0.95, F1-score: 0.90), demonstrating proficiency in large-scale data processing, feature engineering, and distributed machine learning for fraud detection."
-                ],
-                "link": "https://github.com/kashyaparun25/Anti-Money-Laundering-Detection-Using-Big-Data-Technologies"
-            },
-            {
-                "title": "Billionaires Unveiled: A Data-Driven Exploration of Wealth and Power",
-                "date": "September 2023",
-                "location": "Bangalore, India",
-                "description": [
-                    "Led a comprehensive data analysis of billionaire datasets, using Python (pandas, seaborn, matplotlib) to create insightful visualizations, uncovering trends in wealth distribution across industries, improving data insights by 30%.",
-                    "Utilized techniques including countplots, histograms, and scatter plots to generate informative visualizations that provided insights on age distribution, wealth concentration across industries, and relationships between age and net worth.",
-                    "Presented data-driven insights on Indian and American billionaires, driving executive decision-making by revealing the top 5 by net worth and visualizing wealth concentration patterns."
-                ],
-                "link": "#"
-            },
-            {
-                "title": "ResNet50 Unleashed: Mastering CIFAR-10 Image Recognition",
-                "date": "April 2024",
-                "location": "Stevens Institute of Technology",
-                "description": [
-                    "Worked on improving image recognition accuracy for the CIFAR-10 dataset (60,000 images across 10 classes) by designing a deep learning model capable of overcoming the limitations of traditional CNNs.",
-                    "Implemented a CNN with ResNet50, applying data preprocessing and hyperparameter tuning to optimize the model, and trained it on Google Colab using GPU acceleration.",
-                    "Achieved 93.08% test accuracy on the CIFAR-10 dataset, significantly surpassing basic CNN performance (74.11%) and demonstrating proficiency in deep learning model optimization."
-                ],
-                "link": "https://github.com/kashyaparun25/ResNet50-Unleashed-Mastering-CIFAR-10-Image-Recognition"
-            }
-        ];
-
-        // Data for articles (UPDATED from resume)
-        const articlesData = [
-            {
-                "title": "AI Deception Unveiled: How Frontier Models Scheme and Fake Alignment",
-                "date": "January 2025",
-                "summary": `Large language models like o1, Claude, and Gemini can engage in both alignment faking and in-context scheming,
-                            meaning they can appear to follow instructions while secretly pursuing their own goals. This highlights
-                            the potential for sophisticated deception in AI and the need for more research to prevent these issues.`,
-                "link": "https://medium.com/@kashyaparun25/ai-deception-unveiled-how-frontier-models-scheme-and-fake-alignment-71a4cc12999b"
-            },
-            {
-                "title": "Journey from LLM to LCM: How New AI Thinks in Concepts, Not Just Tokens",
-                "date": "January 2025",
-                "summary": `Tired of AI that just strings words together? A new approach, the Large Concept Model, is here to shake things up by processing ideas,
-                            not just tokens. This AI thinks and reasons at a higher level, using multilingual concepts to summarize, expand and create content more like a human would`,
-                "link": "https://medium.com/@kashyaparun25/journey-from-llm-to-lcm-how-new-ai-thinks-in-concepts-not-just-tokens-756be885a613"
-            }
-        ];
-
-        // State variables (mimicking React state)
-        let isDarkMode = true; // Initial state
-        let isChatbotOpen = false;
-        let chatMessages = [];
-        const expandedProjects = {}; // To store expanded content for projects
-
-        // DOM Elements
-        const body = document.body;
-        const themeToggleButton = document.getElementById('theme-toggle');
-        const sunIcon = themeToggleButton.querySelector('.sun-icon');
-        const moonIcon = themeToggleButton.querySelector('.moon-icon');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const chatbotToggleButton = document.getElementById('chatbot-toggle-button');
-        const chatbotWindow = document.getElementById('chatbot-window');
-        const chatbotMessagesContainer = document.getElementById('chatbot-messages');
-        const chatInput = document.getElementById('chat-input');
-        const sendChatButton = document.getElementById('send-chat-button');
-        const currentYearSpan = document.getElementById('current-year');
-
-        // --- Theme Management ---
-        function applyTheme() {
-            if (isDarkMode) {
-                body.classList.remove('light-mode');
-                sunIcon.style.display = 'inline-block';
-                moonIcon.style.display = 'none';
-            } else {
-                body.classList.add('light-mode');
-                sunIcon.style.display = 'none';
-                moonIcon.style.display = 'inline-block';
-            }
-            // Update button/link colors based on current theme
-            updateDynamicStyles();
-        }
-
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            applyTheme();
-        }
-
-        function updateDynamicStyles() {
-            // Update nav link colors
-            navLinks.forEach(link => {
-                const sectionId = link.dataset.section;
-                const sectionElement = document.getElementById(sectionId);
-                const isActive = sectionElement && sectionElement.getBoundingClientRect().top <= window.innerHeight / 2 && sectionElement.getBoundingClientRect().bottom >= window.innerHeight / 2;
-                link.style.color = isActive ? getComputedStyle(document.documentElement).getPropertyValue('--color-accent') : getComputedStyle(document.documentElement).getPropertyValue('--color-text-secondary');
-                link.style.borderBottom = isActive ? `2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--color-accent')}` : 'none';
-            });
-
-            // Update chatbot toggle button color
-            const toggleButton = document.getElementById('chatbot-toggle-button');
-            if (toggleButton) {
-                toggleButton.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
-                toggleButton.style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-text-primary'); // Text color
-                toggleButton.style.boxShadow = `0 4px 12px ${getComputedStyle(document.documentElement).getPropertyValue('--color-shadow')}`;
-            }
-
-            // Update chatbot window colors
-            if (chatbotWindow) {
-                chatbotWindow.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-chatbot-bg');
-                chatbotWindow.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-chatbot-border');
-                chatbotWindow.querySelector('.chatbot-header').style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
-                chatbotWindow.querySelector('.chatbot-header').style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-text-primary');
-
-                const chatInputElem = document.getElementById('chat-input');
-                chatInputElem.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-chatbot-input-bg');
-                chatInputElem.style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-chatbot-input-text');
-                chatInputElem.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-chatbot-border');
-                chatInputElem.style.boxShadow = `0 0 0 2px ${getComputedStyle(document.documentElement).getPropertyValue('--color-accent')}`; // Focus ring
-
-                const sendChatButtonElem = document.getElementById('send-chat-button');
-                sendChatButtonElem.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-chatbot-button-bg');
-                sendChatButtonElem.style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-text-primary');
-                sendChatButtonElem.style.boxShadow = `0 2px 8px ${getComputedStyle(document.documentElement).getPropertyValue('--color-card-shadow')}`;
-            }
-
-            // Update project/article button colors
-            document.querySelectorAll('.project-button, .article-button').forEach(button => {
-                button.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
-                button.style.color = '#FFFFFF'; // Ensure text is always white
-                button.style.boxShadow = `0 4px 10px ${getComputedStyle(document.documentElement).getPropertyValue('--color-card-shadow')}`;
-            });
-
-            // Update card border hovers
-            document.querySelectorAll('.card').forEach(card => {
-                card.onmouseenter = () => card.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
-                card.onmouseleave = () => card.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-border');
-            });
-        }
-
-
-        // --- Navigation Highlighting ---
-        function handleScroll() {
-            let currentSection = 'about';
-            for (const id in sectionsData) {
-                const element = document.getElementById(id);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                        currentSection = id;
-                        break;
-                    }
-                }
-            }
-
-            navLinks.forEach(link => {
-                if (link.dataset.section === currentSection) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-            updateDynamicStyles(); // Ensure active link color updates with theme
-        }
-
-        // --- Chatbot Functionality ---
-        function toggleChatbot() {
-            isChatbotOpen = !isChatbotOpen;
-            if (isChatbotOpen) {
-                chatbotWindow.classList.add('open');
-                chatbotToggleButton.classList.add('open');
-                chatbotToggleButton.querySelector('.chat-icon').style.display = 'none';
-                chatbotToggleButton.querySelector('.close-icon').style.display = 'inline-block';
-                // Scroll to bottom when opening
-                setTimeout(() => {
-                    chatbotMessagesContainer.scrollTop = chatbotMessagesContainer.scrollHeight;
-                }, 300); // Allow animation to complete
-            } else {
-                chatbotWindow.classList.remove('open');
-                chatbotToggleButton.classList.remove('open');
-                chatbotToggleButton.querySelector('.chat-icon').style.display = 'inline-block';
-                chatbotToggleButton.querySelector('.close-icon').style.display = 'none';
-            }
-        }
-
-        function addChatMessage(sender, text) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('chat-bubble', sender);
-            messageElement.textContent = text;
-            chatbotMessagesContainer.appendChild(messageElement);
-            chatMessages.push({ sender, text }); // Store in state
-            chatbotMessagesContainer.scrollTop = chatbotMessagesContainer.scrollHeight; // Scroll to bottom
-        }
-
-        async function sendChatMessage() {
-            const messageText = chatInput.value.trim();
-            if (messageText === '') return;
-
-            addChatMessage('user', messageText);
-            chatInput.value = ''; // Clear input
-
-            // Simulate bot response (replace with actual backend API call)
-            setTimeout(() => {
-                addChatMessage('bot', `Hello! You asked: "${messageText}". This is a placeholder chatbot. You can integrate me with a real backend service!`);
-            }, 1000);
-        }
-
-        // --- Gemini API Integration for Project Expansion ---
-        async function generateExpandedDescription(projectTitle, projectDescription, projectId, buttonElement) {
-            if (expandedProjects[projectId] && expandedProjects[projectId].loading) {
-                return; // Already loading
-            }
-            if (expandedProjects[projectId] && expandedProjects[projectId].content) {
-                // If already expanded, toggle visibility or re-generate
-                const existingDiv = document.getElementById(`expanded-${projectId}`);
-                if (existingDiv) {
-                    existingDiv.remove();
-                    delete expandedProjects[projectId];
-                    buttonElement.innerHTML = `✨ Expand Description`;
-                    return;
-                }
-            }
-
-            buttonElement.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Loading...`;
-            buttonElement.disabled = true;
-            expandedProjects[projectId] = { loading: true, content: '' };
-
-            const prompt = `Elaborate on the following data science project, providing more technical details and highlighting its impact. Focus on the technologies used, challenges overcome, and quantifiable results.
-Project Title: ${projectTitle}
-Description: ${projectDescription.join('\n- ')}
-`;
-
-            try {
-                const payload = {
-                    contents: [{ role: "user", parts: [{ text: prompt }] }],
-                };
-                const apiKey = ""; // API key is handled by the Canvas environment
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const text = result.candidates[0].content.parts[0].text;
-                    expandedProjects[projectId] = { loading: false, content: text };
-                    displayExpandedDescription(projectId, text, buttonElement);
-                } else {
-                    console.error("Gemini API returned an unexpected structure:", result);
-                    expandedProjects[projectId] = { loading: false, content: "Failed to generate expanded description. Please try again." };
-                    displayExpandedDescription(projectId, "Failed to generate expanded description. Please try again.", buttonElement);
-                }
-            } catch (error) {
-                console.error("Error calling Gemini API:", error);
-                expandedProjects[projectId] = { loading: false, content: "Error connecting to the AI service. Please try again." };
-                displayExpandedDescription(projectId, "Error connecting to the AI service. Please try again.", buttonElement);
-            } finally {
-                buttonElement.disabled = false;
-                buttonElement.innerHTML = `✨ Hide Description`; // Change button text to hide
-            }
-        }
-
-        function displayExpandedDescription(projectId, content, buttonElement) {
-            const projectCard = buttonElement.closest('.card');
-            if (!projectCard) return;
-
-            let expandedDiv = document.getElementById(`expanded-${projectId}`);
-            if (expandedDiv) {
-                expandedDiv.remove(); // Remove if already exists to prevent duplicates
-            }
-
-            expandedDiv = document.createElement('div');
-            expandedDiv.id = `expanded-${projectId}`;
-            expandedDiv.classList.add('project-expanded-details');
-            expandedDiv.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-project-expanded-bg');
-            expandedDiv.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-project-expanded-border');
-            expandedDiv.style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-text-primary');
-
-            const header = document.createElement('h4');
-            header.textContent = 'Expanded Details:';
-            header.style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
-            expandedDiv.appendChild(header);
-
-            const contentP = document.createElement('p');
-            contentP.textContent = content;
-            expandedDiv.appendChild(contentP);
-
-            projectCard.appendChild(expandedDiv);
-        }
-
-        // --- Dynamic Content Rendering ---
-        function renderProjects() {
-            const projectsContainer = document.querySelector('#projects .card-grid');
-            projectsContainer.innerHTML = ''; // Clear existing content
-            projectsData.forEach((project, index) => {
-                const projectCard = document.createElement('div');
-                projectCard.classList.add('card');
-                projectCard.innerHTML = `
-                    <h3>${project.title}</h3>
-                    <p class="text-base mb-2">
-                        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="hover-underline" style="color: var(--color-accent);">
-                            View Project on Github
-                        </a>
-                    </p>
-                    <p class="small-text"><em>${project.date}${project.location ? `, ${project.location}` : ''}</em></p>
-                    <ul>
-                        ${project.description.map(point => `<li>${point}</li>`).join('')}
-                    </ul>
-                    <button class="project-button" data-project-id="project-${index}">
-                        ✨ Expand Description
-                    </button>
-                `;
-                projectsContainer.appendChild(projectCard);
-
-                // Attach event listener to the dynamically created button
-                const expandButton = projectCard.querySelector('.project-button');
-                expandButton.addEventListener('click', () => {
-                    generateExpandedDescription(project.title, project.description, `project-${index}`, expandButton);
-                });
-
-                // Apply hover effects dynamically
-                projectCard.onmouseenter = () => projectCard.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
-                projectCard.onmouseleave = () => projectCard.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-border');
-            });
-        }
-
-        function renderArticles() {
-            const articlesContainer = document.querySelector('#articles .card-grid');
-            articlesContainer.innerHTML = ''; // Clear existing content
-            articlesData.forEach((article, index) => {
-                const articleCard = document.createElement('div');
-                articleCard.classList.add('card');
-                articleCard.innerHTML = `
-                    <h3>${article.title}</h3>
-                    <p class="small-text"><em>${article.date}</em></p>
-                    <p>${article.summary}</p>
-                    <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="article-button" style="background-color: var(--color-accent); color: #FFFFFF; box-shadow: 0 4px 10px var(--color-card-shadow);">
-                        Read More
-                    </a>
-                `;
-                articlesContainer.appendChild(articleCard);
-
-                // Apply hover effects dynamically
-                const readMoreButton = articleCard.querySelector('.article-button');
-                readMoreButton.onmouseenter = () => readMoreButton.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-chatbot-button-hover');
-                readMoreButton.onmouseleave = () => readMoreButton.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
-
-                articleCard.onmouseenter = () => articleCard.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
-                articleCard.onmouseleave = () => articleCard.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-border');
-            });
-        }
-
-
-        // --- Initialization on DOMContentLoaded ---
-        document.addEventListener('DOMContentLoaded', () => {
-            currentYearSpan.textContent = new Date().getFullYear();
-            applyTheme(); // Apply initial theme
-            renderProjects(); // Render projects dynamically
-            renderArticles(); // Render articles dynamically
-
-            // Event Listeners
-            themeToggleButton.addEventListener('click', toggleTheme);
-            chatbotToggleButton.addEventListener('click', toggleChatbot);
-            sendChatButton.addEventListener('click', sendChatMessage);
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendChatMessage();
-                }
-            });
-
-            // Add scroll listener for navigation highlighting
-            window.addEventListener('scroll', handleScroll);
-            handleScroll(); // Call once on load to set initial active link
-
-            // Add hover effects for nav links
-            navLinks.forEach(link => {
-                link.addEventListener('mouseenter', () => link.style.color = getComputedStyle(document.documentElement).getPropertyValue('--color-accent'));
-                link.addEventListener('mouseleave', () => {
-                    const sectionId = link.dataset.section;
-                    const sectionElement = document.getElementById(sectionId);
-                    const isActive = sectionElement && sectionElement.getBoundingClientRect().top <= window.innerHeight / 2 && sectionElement.getBoundingClientRect().bottom >= window.innerHeight / 2;
-                    link.style.color = isActive ? getComputedStyle(document.documentElement).getPropertyValue('--color-accent') : getComputedStyle(document.documentElement).getPropertyValue('--color-text-secondary');
-                });
-            });
-
-            // Apply hover effects to all cards (Education, Skills, Experience)
-            document.querySelectorAll('section:not(#projects):not(#articles) .card').forEach(card => {
-                card.onmouseenter = () => card.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
-                card.onmouseleave = () => card.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--color-border');
-            });
-
-        });
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
+
 </html>

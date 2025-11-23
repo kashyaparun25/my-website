@@ -261,16 +261,16 @@ function initChatbot() {
 
     // Portfolio data for responses
     const portfolioData = {
-        skills: ['Python', 'TensorFlow', 'PyTorch', 'LangChain', 'CrewAI', 'RAG', 'AWS', 'Azure', 'FastAPI', 'Streamlit'],
+        skills: ['CrewAI', 'LangChain', 'LangGraph', 'RAG', 'Prompt Engineering', 'Python', 'FastAPI', 'GCP', 'AWS', 'Azure', 'PostgreSQL', 'Pinecone', 'PySpark'],
         projects: [
-            { name: 'Campus Calm AI', tech: 'Azure AI, RAG, FastAPI', desc: 'Mental wellness AI companion' },
-            { name: 'Design Thinking AI Agents', tech: 'CrewAI, LangChain', desc: 'Multi-agent design thinking system' },
-            { name: 'Case Analysis Suite', tech: 'GenAI, Python', desc: 'Automated case study analyzer' },
-            { name: 'Simulated Board Discussion', tech: 'CrewAI, Firecrawl', desc: 'AI-powered board simulation' }
+            { name: 'HistOracle AI Platform', tech: 'LangGraph, Pinecone, GCP', desc: 'Multi-agent platform with 21 autonomous agents serving 2K+ users' },
+            { name: 'Campus Calm AI', tech: 'Azure AI, RAG, FastAPI', desc: '3rd Place Quackathon Winner - Mental wellness AI companion' },
+            { name: 'Design Thinking AI Agent Cluster', tech: 'CrewAI, LangChain, RAG', desc: 'Enterprise multi-agent framework with 5 design-thinking agents' },
+            { name: 'Anti-Money Laundering Detection', tech: 'PySpark, AWS EMR', desc: 'Big Data pipeline processing 31M+ transactions with AUROC 0.95' }
         ],
-        experience: 'Graduate Student Assistant at Stevens Institute, Product Analyst at BlueTree, IoT Intern at Invicto',
-        education: "Master's from Stevens Institute of Technology",
-        contact: 'hvarunkashyap@gmail.com'
+        experience: 'AI Engineer at Editlingo Solutions (building multi-agent platform with 21 agents), Graduate Student Assistant at Stevens Institute (developed 11+ agentic AI systems), Product Analyst at BlueTree (enterprise clients like PhonePe, Autoliv)',
+        education: "Master's in Data Science from Stevens Institute of Technology (GPA: 3.9/4.0), B.Tech from Presidency University",
+        contact: 'arun.kashy01@gmail.com'
     };
 
     toggle.addEventListener('click', () => {
